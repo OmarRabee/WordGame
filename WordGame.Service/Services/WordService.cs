@@ -24,6 +24,11 @@ namespace WordGame.Service.Services
 
       public Task<bool> IsValidWord(string word) => _dictionaryApiHandler.IsValidWord(word.ToLower());
 
-      public bool IsWordInChars(char[] chars, string word) => chars.Intersect(word.ToLower().ToCharArray()).Any();
+      public bool IsWordInChars(char[] chars, string word)
+      {
+         foreach (char c in word.ToLower())
+            if (!chars.Contains(c)) { return false; }
+         return true;
+      }
    }
 }

@@ -103,13 +103,11 @@ namespace WordGame.Client
 
       private static void SetConsoleColor(ConsoleColor consoleColor)
       {
-         Console.BackgroundColor = consoleColor;
-         Console.ForegroundColor = ConsoleColor.Black;
+         Console.ForegroundColor = consoleColor;
       }
 
       private static void ResetConsoleColor()
       {
-         Console.BackgroundColor = ConsoleColor.Black;
          Console.ForegroundColor = ConsoleColor.White;
       }
 
