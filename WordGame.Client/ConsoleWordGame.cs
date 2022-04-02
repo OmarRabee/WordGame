@@ -21,12 +21,9 @@ namespace WordGame.Client
 
       public async Task Start()
       {
-         _timer.Interval = (int.Parse(_configuration["GameTimeInSeconds"]) * 1000);
-         _timer.Elapsed += (object source, System.Timers.ElapsedEventArgs e) => EndGame();
-         _timer.Enabled = true;
+         SetTimer();
 
-         Console.WriteLine($"You have {_configuration["GameTimeInSeconds"] } seconds to guess some words from the following characters");
-         Console.WriteLine("Type a word and press enter to continue");
+         Console.WriteLine($"You have {_configuration["GameTimeInSeconds"] } seconds to guess some words from the following characters, Type a word and press enter to continue: ");
 
          var randomChars = _wordService.GetRandomCharacters();
          Console.WriteLine(_wordService.FormatString(randomChars));
@@ -75,6 +72,12 @@ namespace WordGame.Client
       }
 
       #region PrivateHelpers
+      private void SetTimer()
+      {
+         _timer.Interval = (int.Parse(_configuration["GameTimeInSeconds"]) * 1000);
+         _timer.Elapsed += (object source, System.Timers.ElapsedEventArgs e) => EndGame();
+         _timer.Enabled = true;
+      }
 
       private void DisplayInvalidWord()
       {
