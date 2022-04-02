@@ -2,7 +2,7 @@
 {
    public interface IWordGame
    {
-      Task Start(double intervalInSeconds);
+      Task Start();
 
       void DisplayScore(int points);
    }

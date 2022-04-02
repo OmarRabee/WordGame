@@ -1,4 +1,5 @@
-﻿using WordGame.Domain.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using WordGame.Domain.Interfaces;
 using WordGame.Domain.Interfaces.Services;
 
 namespace WordGame.Client
@@ -6,23 +7,25 @@ namespace WordGame.Client
    public class ConsoleWordGame : IWordGame
    {
       private readonly IWordService _wordService;
+      private readonly IConfiguration _configuration;
 
       private static int _totalPoints = 0;
       private static List<string> _validWords = new List<string>();
       private static System.Timers.Timer _timer = new System.Timers.Timer();
 
-      public ConsoleWordGame(IWordService wordService)
+      public ConsoleWordGame(IWordService wordService, IConfiguration configuration)
       {
          _wordService = wordService;
+         _configuration = configuration;
       }
 
-      public async Task Start(double intervalInSeconds)
+      public async Task Start()
       {
-         _timer.Interval = (intervalInSeconds * 1000);
+         _timer.Interval = (int.Parse(_configuration["GameTimeInSeconds"]) * 1000);
          _timer.Elapsed += (object source, System.Timers.ElapsedEventArgs e) => EndGame();
          _timer.Enabled = true;
 
-         Console.WriteLine($"You have {intervalInSeconds} seconds to guess some words from the following characters");
+         Console.WriteLine($"You have {_configuration["GameTimeInSeconds"] } seconds to guess some words from the following characters");
          Console.WriteLine("Type a word and press enter to continue");
 
          var randomChars = _wordService.GetRandomCharacters();

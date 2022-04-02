@@ -1,4 +1,5 @@
-﻿using WordGame.Domain.Interfaces.ApiHandlers;
+﻿using Microsoft.Extensions.Configuration;
+using WordGame.Domain.Interfaces.ApiHandlers;
 
 namespace WordGame.Service.ApiHandlers
 {
@@ -6,9 +7,9 @@ namespace WordGame.Service.ApiHandlers
    {
       private readonly HttpClient _dictionaryClient;
 
-      public DictionaryApiHandler()
+      public DictionaryApiHandler(IConfiguration configuration)
       {
-         _dictionaryClient = new HttpClient() { BaseAddress = new Uri("https://api.dictionaryapi.dev/api/v2/entries/en/") };
+         _dictionaryClient = new HttpClient() { BaseAddress = new Uri(configuration["DictionaryApiBase"]) };
       }
 
       public async Task<bool> IsValidWord(string word)

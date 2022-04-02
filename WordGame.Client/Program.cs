@@ -4,10 +4,11 @@ using WordGame.Client.Dependencies;
 using WordGame.Domain.Interfaces;
 
 using IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((_, services) => services.RegisterApiHadndlers().RegisterServices()).Build();
+   .RegisterConfiguration()
+   .ConfigureServices((_, services) => services.RegisterApiHadndlers().RegisterServices()).Build();
 
 using IServiceScope serviceScope = host.Services.CreateScope();
 IServiceProvider provider = serviceScope.ServiceProvider;
 
 var wordGame = provider.GetRequiredService<IWordGame>();
-await wordGame.Start(90);
+await wordGame.Start();
