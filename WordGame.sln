@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordGame.Service", "WordGam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6A3F0958-13DE-44AE-9221-D7AE654DA51D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordGame.Service.Tests", "WordService.Tests\WordGame.Service.Tests.csproj", "{337396A3-75EB-48B2-AD46-A5B064C304C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,9 +31,16 @@ Global
 		{EE44E9ED-0E21-4D9F-8FBC-80864011C20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE44E9ED-0E21-4D9F-8FBC-80864011C20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE44E9ED-0E21-4D9F-8FBC-80864011C20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337396A3-75EB-48B2-AD46-A5B064C304C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337396A3-75EB-48B2-AD46-A5B064C304C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337396A3-75EB-48B2-AD46-A5B064C304C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337396A3-75EB-48B2-AD46-A5B064C304C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{337396A3-75EB-48B2-AD46-A5B064C304C1} = {6A3F0958-13DE-44AE-9221-D7AE654DA51D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {126C48EF-51AD-4D10-9010-A2BADC80196B}

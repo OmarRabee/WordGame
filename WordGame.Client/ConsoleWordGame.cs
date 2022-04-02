@@ -76,7 +76,7 @@ namespace WordGame.Client
       private void DisplayInvalidWord()
       {
          SetConsoleColor(ConsoleColor.Red);
-         Console.WriteLine($"Invalid word pal :(, but no problem keep trying\n");
+         Console.WriteLine($"Invalid word pal :( but no problem keep trying\n");
          ResetConsoleColor();
       }
 
